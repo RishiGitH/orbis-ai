@@ -70,7 +70,7 @@ A decentralized AI data labeling platform
 ## Running Tests
 
 ```
-pytest
+pytest -s
 ```
 
 ## Code Formatting
@@ -94,5 +94,5 @@ pytest
    docker-compose up --build
    ```
    ```
-   docker-compose run web pytest
+   docker-compose run web pytest -s
    ```
