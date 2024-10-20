@@ -7,7 +7,7 @@ class User(AbstractUser):
         TRAINER = 'trainer', 'Trainer'
         REVIEWER = 'reviewer', 'Reviewer'
 
-    wallet_address = models.CharField(max_length=42, unique=True)
+    wallet_address = models.CharField(max_length=54, unique=True)
     user_type = models.CharField(
         max_length=10,
         choices=UserType.choices,

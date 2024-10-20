@@ -26,6 +26,10 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,*').split(',')
 
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,https://app.orbisai.xyz').split(',')
+ 
+CSRF_TRUSTED_ORIGINS = ['https://app.orbisai.xyz']
+
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     'django.contrib.admin',
