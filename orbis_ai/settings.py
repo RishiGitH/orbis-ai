@@ -24,9 +24,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',"r$mv%6=3-jn44li33$ucxx!_=r-l$_f
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,*').split(',')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,https://app.orbisai.xyz').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,app.orbisai.xyz,*').split(',')
  
 CSRF_TRUSTED_ORIGINS = ['https://app.orbisai.xyz']
 
