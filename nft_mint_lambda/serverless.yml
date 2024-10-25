@@ -1,0 +1,42 @@
+service: mint-nft-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  environment:
+    NETWORK: devnet  # or mainnet
+    WALLET_SECRET: ${env:WALLET_SECRET}  # Load wallet secret from environment
+  apiGateway:
+    apiKeys:
+      - nftMintingAPIKey  # Define the API Key
+    usagePlan:
+      throttle:
+        burstLimit: 5
+        rateLimit: 10
+
+functions:
+  mintNFT:
+    handler: src/index.handler
+    events:
+      - http:
+          path: mint
+          method: post
+          private: true  # API key protection
+
+resources:
+  Resources:
+    ApiGatewayApiKey:
+      Type: AWS::ApiGateway::ApiKey
+      Properties:
+        Name: nftMintingAPIKey
+plugins
+  - serverless-offline
+
+custom:
+  docker:
+    image: node:18-alpine  # Customize Docker image
+
+package:
+  individually: true
+

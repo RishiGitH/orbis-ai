@@ -31,6 +31,9 @@ config.py
 *Pipfile
 node_modules
 
+*node_modules
+*package.json
+*package-lock.json
 serverless.yaml
 test.sh
 __pycache__/
